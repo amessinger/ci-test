@@ -23,7 +23,7 @@ else
 	echo "Let's release tag $TAG"
 
 	# ARCHIVE CREATION
-	archive_name=$REPOSITORY_NAME-$TAG.tag.gz
+	archive_name=$REPOSITORY_NAME-$TAG.tar.gz
 	echo "Creating archive $archive_name from folder $DIST_FOLDER"
 	tar zcvf $archive_name $DIST_FOLDER
 
