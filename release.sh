@@ -3,7 +3,6 @@
 # GITHUB SETTINGS
 REPOSITORY_OWNER="amessinger"
 REPOSITORY_NAME="ci-test"
-OAUTH_TOKEN="fa34424f0e525ae4180afe7f21e02382dca4f5f7"
 
 # ARCHIVE SETTINGS
 DIST_FOLDER="dist/"
@@ -16,6 +15,11 @@ TAG=`echo $LAST_COMMIT_MESSAGE | grep $TAG_FORMAT`
 if [ -z $TAG ]; then
 	echo "No need for release"
 else
+	if [ -z $OAUTH_TOKEN ]; then
+		echo "No OAUTH_TOKEN defined"
+		exit 1
+	fi
+
 	echo "Let's release tag $TAG"
 
 	# ARCHIVE CREATION
